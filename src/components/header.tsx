@@ -7,6 +7,7 @@ import { Button } from "./ui/button";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { UserButton, useUser } from "@clerk/nextjs";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -38,6 +39,7 @@ export const Header = () => {
             </Button>
           </SheetTrigger>
           <SheetContent side={"left"} className="w-64 p-4">
+              <UserButton/>
             <nav className="flex flex-col space-y-2 mt-4">
               {navItems.map(({ label, href }) => (
                 <Button
@@ -68,11 +70,12 @@ export const Header = () => {
                 ? "bg-primary text-primary-foreground"
                 : "hover:bg-muted"
             )}
-            onClick={()=>handleNav(href)}
+            onClick={() => handleNav(href)}
           >
             {label}
           </Link>
         ))}
+        <UserButton />
       </nav>
     </header>
   );
