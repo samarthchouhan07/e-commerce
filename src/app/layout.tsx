@@ -1,5 +1,7 @@
+// "use client";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 import {
   ClerkProvider,
@@ -10,6 +12,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { Header } from "@/components/header";
+import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,14 +26,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const pathname = usePathname();
+  // const isSignInpage = pathname === "/sign-in";
   return (
     <ClerkProvider>
       <html lang="en">
         <body className={`${inter.className} ${inter.className} antialiased`}>
-          <header className="flex justify-end items-center p-4 gap-4 h-16">
-            <Header />
-          </header>
-          {children}
+          <Providers>
+            {/* {!isSignInpage && ( */}
+            <header className="flex justify-end items-center p-4 gap-4 h-16">
+              <Header />
+            </header>
+            {/* )} */}
+            <Toaster />
+            {children}
+          </Providers>
         </body>
       </html>
     </ClerkProvider>

@@ -21,6 +21,7 @@ import {
 } from "./ui/dropdown-menu";
 
 type Subcategory = {
+  id:string
   name: string;
   slug: string;
 };
@@ -76,7 +77,7 @@ export const Categories = () => {
                       key={sub.slug}
                       className="text-sm px-3 py-2 rounded hover:bg-muted cursor-pointer text-black"
                       onClick={() =>
-                        router.push(`/category/${cat.slug}/${sub.slug}`)
+                        router.push(`/category/${cat.slug}/${sub.id}`)
                       }
                     >
                       {sub.name}
@@ -97,7 +98,7 @@ export const Categories = () => {
                   <DropdownMenuItem
                     key={sub.slug}
                     onClick={() =>
-                      router.push(`/category/${cat.slug}/${sub.slug}`)
+                      router.push(`/category/${cat.slug}/${sub.id}`)
                     }
                     className="cursor-pointer"
                   >

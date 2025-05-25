@@ -30,7 +30,7 @@ export const Header = () => {
 
   return (
     <header className="w-full border-b px-4 py-3 flex items-center justify-between">
-      <h1 className="text-xl font-bold">E-Commerce</h1>
+      <h1 className="text-xl font-bold">Elevate-X</h1>
       <div className="md:hidden">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
